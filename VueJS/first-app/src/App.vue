@@ -11,6 +11,7 @@
             </div>
         </div>
         <app-animation></app-animation>
+        <app-form></app-form>
     </div>
 </template>
 
@@ -19,6 +20,7 @@
     import NewQuote from './components/NewQuote.vue';
     import Header from './components/Header.vue';
     import Animation from './components/Animation.vue';
+    import Form from './components/Form.vue';
 
     export default {
         data: function() {
@@ -45,7 +47,8 @@
             appQuoteGrid: QuoteGrid,
             appNewQuote: NewQuote,
             appHeader: Header,
-            appAnimation: Animation
+            appAnimation: Animation,
+            appForm: Form
         }
     }
 </script>
