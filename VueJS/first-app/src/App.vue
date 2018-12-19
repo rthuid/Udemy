@@ -10,6 +10,7 @@
                 </div>
             </div>
         </div>
+        <app-animation></app-animation>
     </div>
 </template>
 
@@ -17,6 +18,7 @@
     import QuoteGrid from './components/QuoteGrid.vue';
     import NewQuote from './components/NewQuote.vue';
     import Header from './components/Header.vue';
+    import Animation from './components/Animation.vue';
 
     export default {
         data: function() {
@@ -42,7 +44,8 @@
         components: {
             appQuoteGrid: QuoteGrid,
             appNewQuote: NewQuote,
-            appHeader: Header
+            appHeader: Header,
+            appAnimation: Animation
         }
     }
 </script>
