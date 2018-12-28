@@ -39,7 +39,7 @@
         methods: {
             formSubmit() {
                 console.log(this.user);
-                this.$http.post('https://vue-http-1bd1d.firebaseio.com/user.json', this.user)
+                this.$http.post('', this.user)
                     .then(res => {
                         console.log(res);
                     }, error => {
@@ -48,7 +48,7 @@
             },
             getUsers() {
                 console.log(this.user);
-                this.$http.get('https://vue-http-1bd1d.firebaseio.com/user.json')
+                this.$http.get('')
                     .then(res => {
                         console.log(res);
                         this.users = res.body;
