@@ -7,6 +7,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var babel = require('gulp-babel');
 var del = require('del');
+// open in browser
+var open = require('gulp-open');
 // for not stoping the watch if error found in css
 var plumber = require('gulp-plumber');
 
@@ -107,8 +109,10 @@ gulp.task('default', ['html','clean', 'images', 'styles', 'scripts'], () => {
 
 // watch
 gulp.task('watch',['default'], ()=> {
-    console.log('Starting watch task');
-    require('./server.js');
+    console.log('Starting watch task')
+    require('./server.js')
+    gulp.src(DIST_PATH + '/index.html')
+    .pipe(open({uri: 'http://localhost:3000/'}));
     livereload.listen();
     gulp.watch(PATHS.SRC_SCRIPTS, ['scripts']);
     gulp.watch(PATHS.SRC_SCSS, ['styles']);

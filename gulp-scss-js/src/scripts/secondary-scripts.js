@@ -5,5 +5,5 @@ for(var i = 0; i < rth; i++) {
 }
 // jquery test
 $(document).ready(()=> {
-	alert('Im in');
-})
+	alert('jquery test');
+});
