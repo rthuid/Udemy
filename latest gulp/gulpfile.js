@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var babel = require('gulp-babel');
 var del = require('del');
+var merge = require('merge-stream');
 // open in browser
 var open = require('gulp-open');
 // for not stoping the watch if error found in css
@@ -60,7 +61,7 @@ gulp.task('styles', () => {
 
 // scripts
 gulp.task('scripts', () => {
-    return gulp.src(PATHS.SRC_SCRIPTS)
+    var customScripts = gulp.src(PATHS.SRC_SCRIPTS)
     .pipe(plumber((err) => {
         console.log('Script Error');
         console.log(err);
@@ -74,14 +75,21 @@ gulp.task('scripts', () => {
     .pipe(concat('scripts.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(SRC_PATH + 'dist/js'))
+
+
+    var all = gulp.src(PATHS.VENDOR_N_APP_SCRIPT)
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest(PATHS.DIST_SCRIPTS))
+
+    return merge(customScripts, all)
     .pipe(livereload())
 });
 // scriptVendors
-gulp.task('scriptVendors', () => {
-    return gulp.src(PATHS.VENDOR_N_APP_SCRIPT)
-    .pipe(concat('scripts.js'))
-    .pipe(gulp.dest(PATHS.DIST_SCRIPTS));
-});
+// gulp.task('scriptVendors', () => {
+//     return gulp.src(PATHS.VENDOR_N_APP_SCRIPT)
+//     .pipe(concat('scripts.js'))
+//     .pipe(gulp.dest(PATHS.DIST_SCRIPTS));
+// });
 
 // html - (only live reload for html files)
 gulp.task('html', () => {
@@ -114,7 +122,7 @@ gulp.task('clean', () => {
 })
 
 // default
-gulp.task('default', ['scripts','html', 'images', 'styles', 'scriptVendors'], () => {
+gulp.task('default', ['scripts','html', 'images', 'styles'], () => {
     console.log('starting default task');
 });
 
@@ -125,7 +133,7 @@ gulp.task('watch',['default'], ()=> {
     gulp.src(DIST_PATH + '/index.html')
     .pipe(open({uri: 'http://localhost:3000/'}));
     livereload.listen();
-    gulp.watch(PATHS.SRC_SCRIPTS, ['scripts', 'scriptVendors']);
+    gulp.watch(PATHS.SRC_SCRIPTS, ['scripts']);
     gulp.watch(PATHS.SRC_SCSS, ['styles']);
     gulp.watch(PATHS.SRC_HTML, ['html']);
 });
