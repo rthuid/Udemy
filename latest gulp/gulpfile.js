@@ -26,8 +26,13 @@ var PATHS = {
     DIST_HTML: DIST_PATH,
 
     SRC_SCRIPTS: [
-        SRC_PATH + 'scripts/vendor/jquery-3.3.1.min.js',
         SRC_PATH + 'scripts/**/*.js'
+    ],
+    VENDOR_N_APP_SCRIPT: [
+        './node_modules/jquery/dist/jquery.min.js',
+        './node_modules/popper.js/dist/umd/popper.min.js',
+        './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        SRC_PATH + 'dist/js/scripts.js'
     ],
     SRC_IMAGES: SRC_PATH + 'images/**/*.{png,jpeg,jpg,svg,gif}',
     SRC_SCSS: SRC_PATH + 'scss/**/*.scss',
@@ -68,8 +73,14 @@ gulp.task('scripts', () => {
     .pipe(uglify())
     .pipe(concat('scripts.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(PATHS.DIST_SCRIPTS))
+    .pipe(gulp.dest(SRC_PATH + 'dist/js'))
     .pipe(livereload())
+});
+// scriptVendors
+gulp.task('scriptVendors', () => {
+    return gulp.src(PATHS.VENDOR_N_APP_SCRIPT)
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest(PATHS.DIST_SCRIPTS));
 });
 
 // html - (only live reload for html files)
@@ -103,7 +114,7 @@ gulp.task('clean', () => {
 })
 
 // default
-gulp.task('default', ['html','clean', 'images', 'styles', 'scripts'], () => {
+gulp.task('default', ['scripts','html', 'images', 'styles', 'scriptVendors'], () => {
     console.log('starting default task');
 });
 
@@ -114,7 +125,7 @@ gulp.task('watch',['default'], ()=> {
     gulp.src(DIST_PATH + '/index.html')
     .pipe(open({uri: 'http://localhost:3000/'}));
     livereload.listen();
-    gulp.watch(PATHS.SRC_SCRIPTS, ['scripts']);
+    gulp.watch(PATHS.SRC_SCRIPTS, ['scripts', 'scriptVendors']);
     gulp.watch(PATHS.SRC_SCSS, ['styles']);
     gulp.watch(PATHS.SRC_HTML, ['html']);
 });

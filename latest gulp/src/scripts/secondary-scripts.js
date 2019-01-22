@@ -4,6 +4,6 @@ for(var i = 0; i < rth; i++) {
 	console.log(i);
 }
 // jquery test
-// $(document).ready(()=> {
-// 	alert('jquery test');
-// });
+$(document).ready(()=> {
+	alert('jquery test');
+});
