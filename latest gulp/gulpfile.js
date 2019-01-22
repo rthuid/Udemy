@@ -10,7 +10,7 @@ var del = require('del');
 var merge = require('merge-stream');
 // open in browser
 var open = require('gulp-open');
-// for not stoping the watch if error found in css
+// for not stoping the watch progress, if error found in css
 var plumber = require('gulp-plumber');
 
 // image compression
@@ -18,6 +18,7 @@ var imagemin = require('gulp-imagemin');
 var imageminPngQuant = require('imagemin-pngquant');
 var imageminJpegRecompress = require('imagemin-jpeg-recompress');
 
+// Path's
 var SRC_PATH = './src/';
 var DIST_PATH = './public/';
 var PATHS = {
@@ -62,34 +63,27 @@ gulp.task('styles', () => {
 // scripts
 gulp.task('scripts', () => {
     var customScripts = gulp.src(PATHS.SRC_SCRIPTS)
-    .pipe(plumber((err) => {
-        console.log('Script Error');
-        console.log(err);
-        this.emit('end');
-    }))
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-        presets:['es2015']
-    }))
-    .pipe(uglify())
-    .pipe(concat('scripts.js'))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(SRC_PATH + 'dist/js'))
-
+        .pipe(plumber((err) => {
+            console.log('Script Error');
+            console.log(err);
+            this.emit('end');
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets:['es2015']
+        }))
+        .pipe(concat('scripts.js'))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(SRC_PATH + 'dist/js'))
 
     var all = gulp.src(PATHS.VENDOR_N_APP_SCRIPT)
-    .pipe(concat('scripts.js'))
-    .pipe(gulp.dest(PATHS.DIST_SCRIPTS))
+        .pipe(uglify())
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest(PATHS.DIST_SCRIPTS))
 
     return merge(customScripts, all)
-    .pipe(livereload())
+        .pipe(livereload())
 });
-// scriptVendors
-// gulp.task('scriptVendors', () => {
-//     return gulp.src(PATHS.VENDOR_N_APP_SCRIPT)
-//     .pipe(concat('scripts.js'))
-//     .pipe(gulp.dest(PATHS.DIST_SCRIPTS));
-// });
 
 // html - (only live reload for html files)
 gulp.task('html', () => {
@@ -111,18 +105,19 @@ gulp.task('images', () => {
             imageminJpegRecompress()
         ]
     ))
-    .pipe(gulp.dest(PATHS.DIST_IMAGES));
+    .pipe(gulp.dest(PATHS.DIST_IMAGES))
+    .pipe(livereload())
 });
 
 // clean|delete
 gulp.task('clean', () => {
-    return del.sync([
+    return del([
         PATHS.DIST_HTML, PATHS.DIST_IMAGES, PATHS.DIST_SCRIPTS, PATHS.DIST_SCSS
     ])
 })
 
 // default
-gulp.task('default', ['scripts','html', 'images', 'styles'], () => {
+gulp.task('default', ['clean','scripts','html', 'images', 'styles'], () => {
     console.log('starting default task');
 });
 
@@ -136,6 +131,7 @@ gulp.task('watch',['default'], ()=> {
     gulp.watch(PATHS.SRC_SCRIPTS, ['scripts']);
     gulp.watch(PATHS.SRC_SCSS, ['styles']);
     gulp.watch(PATHS.SRC_HTML, ['html']);
+    gulp.watch(PATHS.SRC_IMAGES, ['images']);
 });
 
 
