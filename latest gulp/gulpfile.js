@@ -32,8 +32,11 @@ var PATHS = {
     ],
     VENDOR_N_APP_SCRIPT: [
         './node_modules/jquery/dist/jquery.min.js',
+        // popper js only for bootstrap dropdown 
+        // as per the req we can import bootstrap script partials
         './node_modules/popper.js/dist/umd/popper.min.js',
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        // it's a compiled file from all app custom script
         SRC_PATH + 'dist/js/scripts.js'
     ],
     SRC_IMAGES: SRC_PATH + 'images/**/*.{png,jpeg,jpg,svg,gif}',
