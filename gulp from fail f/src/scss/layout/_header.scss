@@ -1,0 +1,24 @@
+// Header
+.app-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: $padding-default*2 $padding-fluid-grid;
+    text-align: right;
+    z-index: 101;
+    pointer-events: none;
+    @include media-breakpoint-down(sm) {
+        padding: $padding-default*2 $padding-default;
+    }
+    &__logo{
+        width:99px;
+        height: 59px;
+        float: right;
+        margin-top: -5px;
+        margin-right: -6.5px;
+        position: relative;
+        z-index: 102;
+        pointer-events: auto;
+    }
+}

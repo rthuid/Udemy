@@ -1,0 +1,118 @@
+.title-primary {
+    font-family: $font-family-secondary;
+    font-size: 100px;
+    letter-spacing: -1px;
+    font-weight: unset;
+    line-height: 88px;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+    &_pink {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: $font-family-secondary;
+        font-weight: unset;
+        font-size: 130px;
+        letter-spacing: -1.22px;
+        line-height: 102px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        margin-top: -50px;
+        text-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+        @include gradient-directional();
+        word-break: break-word;
+    }
+}
+
+.title__small {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 14px;
+    text-align: center;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.2);
+}
+
+.title-secondary {
+    font-family: $font-family-mont;
+    font-size: 42px;
+    letter-spacing: -0.14px;
+    line-height: 48px;
+    font-weight: unset;
+    @include media-breakpoint-down(sm) {
+        font-size: 34px;
+        letter-spacing: -0.1px;
+        line-height: 40px;
+    }
+    @include media-query(xl) {
+        font-size: 52px;
+    }
+}
+
+.title-tertiary {
+    font-family: $font-family-mont;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0;
+    font-weight: unset;
+    @include media-breakpoint-down(sm) {
+        line-height: 17px;
+    }
+    @include media-query(xl) {
+        letter-spacing: 0px;
+        font-size: 20px;
+    }
+}
+
+p {
+    font-family: $font-family-open-sans;
+    font-weight: $font-weight-normal;
+    font-size: 16px;
+    line-height: 28px;
+    margin: 0;
+    &~p {
+        margin-top: 28px;
+    }
+}
+
+.italic {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@include media-breakpoint-down(sm) {
+    .title-primary {
+        font-size: 50px;
+        letter-spacing: -1px;
+        line-height: 46px;
+        &_pink {
+            font-size: 54px;
+            letter-spacing: -1px;
+            line-height: 46px;
+        }
+    }
+}
+
+@include media-query(xl) {
+    .title-primary {
+        font-size: 100px;
+        line-height: 88px;
+        letter-spacing: -1px;
+        &_pink {
+            font-size: 170px;
+            line-height: 134px;
+            letter-spacing: -1.5px;
+        }
+    }
+    .title-secondary {
+        font-size: 56px;
+        line-height: 62px;
+        letter-spacing: -0.2px;
+    }
+    p {
+        font-size: 18px;
+        line-height: 32px;
+        letter-spacing: 0.1px;
+    }
+}

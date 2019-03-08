@@ -1,0 +1,114 @@
+// home page owl carousel styling
+.home-carousel-wrap{
+    .home-carousel{
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        background: $color-black;
+        .owl-item{
+            background: $color-black;
+            height: 100vh;
+            &.active{
+                .item-wrap{
+                    .home-carousel__article{
+                        @include transform($translateY: 0px);
+                        @include transition-delay(.3s);
+                        opacity: 1;
+                    }
+                }
+            }
+            &.fadeOut{
+                .item-wrap{
+                    .home-carousel__article{
+                        @include transform($translateY: -150px);
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+        .item-wrap{
+            position: relative;
+            height: 100vh;
+            background-size: cover !important;
+            background-position: center !important;
+            color: $color-white;
+        }
+        &__article{
+            z-index: 3;
+            position: relative;
+            @include transition(.3s);
+            @include transform($translateY: 150px);
+            @include transition-delay(.0s);
+            opacity: 0;
+        }
+        &__heading{
+            font-size: $font-size-default +2;
+            margin-bottom: $padding-default*2;
+            letter-spacing: 1px;
+            font-weight: bold;
+            @include media-breakpoint-down(sm) {
+                font-size: $font-size-default;
+                margin-bottom: $padding-default*1;
+            }
+            &.line-right{
+                &::before{
+                    content: '';
+                    display: inline-block;
+                    height: 2px;
+                    width: 30px;
+                    background: $color-white;
+                    vertical-align: middle;
+                    margin-right: $padding-default / 1.5;
+                }
+            }
+        }
+        &__text{
+            font-size: 90px;
+            font-family: $font-family-secondary;
+            line-height: 82px;
+            text-shadow: 0 2px 40px rgba(0,0,0,0.2);
+            margin-bottom: $padding-default*3;
+            letter-spacing: -0.3px;
+            font-weight: unset;
+            @include media-breakpoint-down(sm) {
+                font-size: 50px;
+                line-height: 50px;
+                margin-bottom: $padding-default*2;
+            }
+        }
+        &__video-bg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            // z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            iframe {
+                width: 100vw;
+                height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+                min-height: 100vh;
+                min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+             }
+        }
+    }
+}
+
+@include media-query(xl) {
+    .home-carousel-wrap{
+        .home-carousel{
+            &__text{
+                font-size: 120px;
+                line-height: 102px;
+            }
+            &__heading{
+                font-size: $font-size-default +4;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.page-about {
+    background-color: $color-black;
+    min-height: 1500px;
+    color: $white;
+    padding-left: 82px;
+    @include media-breakpoint-down(sm) {
+        padding-left: 0px;
+    }
+}
+
+.about {
+    color: inherit;
+}
+
+.content-wrapper {
+    margin-top: -88px;
+}

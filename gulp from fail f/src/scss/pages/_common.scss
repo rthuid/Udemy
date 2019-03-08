@@ -1,0 +1,101 @@
+.features {
+    .title {
+        font-family: $font-family-mont;
+        font-weight: unset;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        line-height: 17px;
+        text-shadow: 0 2px 40px rgba(0, 0, 0, 0.2);
+        margin-top: 15px;
+        margin-bottom: 10px;
+        @include media-query(xl) {
+            font-size: 18px;
+        }
+    }
+    p {
+        font-family: $font-family-open-sans;
+        font-size: 12px;
+        letter-spacing: 0.4px;
+        line-height: 20px;
+        @include media-query(xl) {
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            line-height: 22px;
+        }
+    }
+}
+
+.info {
+    position: relative;
+    @include flexbox();
+    color: inherit;
+    &__meta {
+        @include flexbox();
+        font-family: $font-family-open-sans;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.2px;
+        line-height: 19px;
+        @include media-breakpoint-down(sm) {
+            max-width: 50%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        &_overlay{
+            position: relative;
+            @include media-breakpoint-down(sm) {
+            &::before {
+                content: "";
+                position: absolute;
+                width: 106%;
+                right: -1px;
+                height: 100%;
+                background: -o-linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,1) 100%);    
+                background: -webkit-linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,1) 100%);
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,1) 100%);
+
+            }
+        }
+        }
+        @include media-query(xl) {
+            font-size: 16px;
+        }
+        &_details {
+            font-style: italic;
+            font-weight: bold;
+        }
+        &_link {
+            color: $color-primary;
+            text-decoration: underline;
+        }
+        &_label {
+            text-transform: uppercase;
+            @include media-query(xl) {
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+        }
+    }
+    &__item {
+        &:not(:first-child) {
+            padding-left: 20px;
+        }
+    }
+    &__share {
+        @include flexbox();
+        list-style: none;
+        margin: 0;
+        padding-left: 15px;
+        li {
+            &:not(:first-child) {
+                padding-left: 30px;
+            }
+        }
+    }
+    &__icon {
+        width: 18px;
+        height: 18px;
+        fill: inherit;
+    }
+}

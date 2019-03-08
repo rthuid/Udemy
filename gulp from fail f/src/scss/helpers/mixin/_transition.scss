@@ -1,0 +1,17 @@
+// transition-delay
+@mixin transition-delay($duration: .2s) {
+-webkit-transition-delay: $duration;
+    -moz-transition-delay: $duration;
+    -o-transition-delay: $duration;
+    transition-delay: $duration;
+}
+
+// transition
+@mixin transition($property: all, $duration: .4s, $function: ease-out) {
+    -webkit-transition: $property $duration $function;
+    -moz-transition: $property $duration $function;
+    -ms-transition: $property $duration $function;
+    -o-transition: $property $duration $function;
+    transition: $property $duration $function;
+    backface-visibility: hidden;
+}

@@ -1,0 +1,11 @@
+// we are using bootstrap 4 grid and this file is only for grid customization
+
+html body .container-fluid{
+    padding-left: $nav-width + 15;
+    @include media-breakpoint-down(sm) {
+        padding-left: 15px;
+    }
+    @include media-query(xl) {
+        padding-left: $nav-width-xl + 15;
+    }
+}

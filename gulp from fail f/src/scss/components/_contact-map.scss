@@ -1,0 +1,52 @@
+.contact-map{
+    height: 377px;
+    overflow: hidden;
+    background: $color-black;
+    &__view{
+        height: calc(100% + 27px);
+    }
+    &__marker {
+        opacity: 1;
+        overflow: visible;
+        width: 56px;
+        height: 47px;
+        @include gradient-horizontal();
+        @include transform($scale: 1, $rotate: 0, $translateX: -10px, $translateY: -55px);
+        position: relative;
+        z-index: 1;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 10px;
+            height: 10px;
+            background: inherit;
+            z-index: -1;
+            @include rotate(45);
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 8px;
+            background: inherit;
+            z-index: 1;
+        }
+        img{
+            width: 42px;
+            height: auto;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+}

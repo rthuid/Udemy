@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>chat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="failfast-Home" transform="translate(-30.000000, -757.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="menu">
+                <g id="chat" transform="translate(30.000000, 757.000000)">
+                    <g id="Group" transform="translate(0.000000, 0.136364)">
+                        <path d="M5.83333333,8.86363636 L5.83333333,6.86363636 L19.25,6.86363636 L19.25,8.86363636 L5.83333333,8.86363636 Z M5.83333333,12.8636364 L5.83333333,10.8636364 L14.4583333,10.8636364 L14.4583333,12.8636364 L5.83333333,12.8636364 Z M2,2 L2,18.5194805 L7.41176471,18.5194805 L7.41176471,22.7272727 L14.1764706,18.5194805 L25,18.5194805 L25,2 L2,2 Z M5.41176471,26.3266591 L5.41176471,20.5194805 L0,20.5194805 L0,0 L27,0 L27,20.5194805 L14.7477426,20.5194805 L5.41176471,26.3266591 Z" id="chat"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

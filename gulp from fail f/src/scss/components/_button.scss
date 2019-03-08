@@ -1,0 +1,59 @@
+.btn-border {
+    @include animated-button($color: $color-white, $background: $color-white, $border-color: $color-white, $border: true, $gradient: true, $hover-color: $color-white);
+    &.media_video__play-icon{
+        &:hover{
+            border-color: $medium-violet-red;
+        }
+        &::before{
+            background: $medium-violet-red;
+        }
+    }
+}
+
+.btn-solid {
+    @include animated-button($color: $color-ruby, $background: $color-white, $border-color: $color-white, $border: false, $gradient: false, $hover-color: $color-white);
+}
+
+.btn-gradient {
+    @include animated-button($color: $color-white, $background: none, $border-color: $color-ruby, $border: false, $gradient: true, $hover-color: $color-ruby);
+}
+
+.btn-base {
+    height: 48px;
+    text-align: center;
+    margin-top: $padding-default *2;
+    width: 100%;
+    cursor: pointer;
+    background: $color-primary;
+    background: -o-linear-gradient(131.62deg, $color-gradient-from 0%, $color-gradient-to 100%);    
+    background: -webkit-linear-gradient(131.62deg, $color-gradient-from 0%, $color-gradient-to 100%);
+    background: linear-gradient(131.62deg, $color-gradient-from 0%, $color-gradient-to 100%);
+    border: none;
+    overflow: hidden;
+    color: $color-white;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2.57px;
+    text-transform: uppercase;
+    border-radius: 1px;
+    &:focus,
+    &:visited{
+        outline: none;
+    }
+    @include media-query(xl) {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+}
+@include media-breakpoint-up(md) {
+    .btn-inline-block-md{
+        width: auto;
+        padding-left: $padding-default*3;
+        padding-right: $padding-default*3;
+    }
+}
+@include media-query(xl) {
+    .btn-base {
+        height: 54px;
+    }
+}

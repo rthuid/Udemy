@@ -1,0 +1,25 @@
+.app-loader{
+    position: fixed;
+    z-index: 10001;
+    right: 0%;
+    left: 100%;
+    top: 0%;
+    bottom: 0%;
+    overflow: hidden;
+    @include gradient-horizontal();
+    &__logo{
+        position: absolute;
+        top: 50vh;
+        width: 200px;
+        max-width: 40%;
+        text-align: center;
+        &_first{
+            right: 50vw;
+            @include transform($scale: 1, $rotate: 0, $translateX: 50%, $translateY: -50%);
+        }
+        &_last{
+            left: 50vw;
+            @include transform($scale: 1, $rotate: 0, $translateX: -50%, $translateY: -50%);
+        }
+    }
+}

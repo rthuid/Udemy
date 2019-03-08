@@ -1,0 +1,12 @@
+// created for contact page social media links
+.social-links{
+    &__list{
+        list-style: none;
+    }
+    &__link{
+        color: inherit;
+        &:hover{
+            color: $color-primary;
+        }
+    }
+}

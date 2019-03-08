@@ -1,0 +1,48 @@
+.page-title{
+    padding-top: 100px;
+    &_footer{
+        overflow: hidden;
+    }
+    .title-primary{
+        z-index: 5;
+        position: relative;
+        margin-bottom: -40px;
+        pointer-events: none;
+        .page-title__overlay{
+            mix-blend-mode: hard-light;
+        }
+    }
+    .title-primary_pink {
+        z-index: 5;
+        position: relative;
+        margin-bottom: -100px;
+        pointer-events: none;
+        .page-title__overlay{
+            mix-blend-mode: saturation;
+        }
+    }
+    .page-title__link{
+        color: inherit;
+    }
+    .page-title__overlay{
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: $color-black;
+        height: 100%;
+        width: 80%;
+        z-index: 2;
+        opacity: .6;
+    }
+
+}
+@include media-breakpoint-down(sm) {
+    .page-title{
+        .title-primary_pink {
+            margin-bottom: -85px;
+        }
+        .title-primary{
+            margin-bottom: -21px;
+        }
+    }
+}

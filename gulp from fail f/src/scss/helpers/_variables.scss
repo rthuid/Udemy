@@ -1,0 +1,65 @@
+// Color system
+// color names are auto generated in http://www.color-blindness.com/color-name-hue/
+$white : #fff !default;
+$theme-black : #111111 !default;
+$radical-red: #FF3267 !default;
+$dark-green: #011111 !default;
+$medium-violet-red: #EA168C !default;
+$unnamed-color-1 : darkgray; //hover of slider social links
+$ruby: #EE227E;
+$color-white: $white !default;
+$color-black: $theme-black !default;
+$color-primary: $radical-red !default;
+$color-ruby: $ruby;
+// background
+$background-primary: $radical-red !default;
+// border
+$color-border-default: rgba(255, 255, 255, 0.2);
+// Gradient colors
+$color-gradient-from: $medium-violet-red;
+$color-gradient-to: $radical-red;
+// Padding and margin
+$spacer:15px;
+$spacer-sm:12.5px;
+$padding: 15px;
+$padding-default: $padding;
+$padding-fluid-grid: 100px;
+$padding-fluid-grid-m: $padding-default;
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+// stylelint-disable value-keyword-case
+$font-family-open-sans : 'Open Sans',
+sans-serif !default;
+$font-family-mont : 'Mont-Heavy',
+sans-serif !default;
+$font-family-default : $font-family-open-sans !default;
+$font-family-secondary : $font-family-mont !default;
+// stylelint-enable value-keyword-case
+$font-size-default : 14px !default; // Assumes the browser default,
+$font-size-large : ($font-size-default * 1.75) !default;
+$font-size-small : ($font-size-default * .875) !default;
+$font-size-xxl: 90px !default;
+$font-size-xxl-m: 50px !default;
+// nav bar width
+$nav-width: 82px;
+$nav-width-xl: 100px;
+$nav-width-m: 45px;
+$font-weight-lighter : lighter !default;
+$font-weight-light : 300 !default;
+$font-weight-normal : 400 !default;
+$font-weight-bold : 700 !default;
+$font-weight-bolder : bolder !default;
+$font-weight-default : $font-weight-normal !default;
+$line-height-default : 1.5 !default;
+$h1-font-size : $font-size-default * 2.5 !default;
+$h2-font-size : $font-size-default * 2 !default;
+$h3-font-size : $font-size-default * 1.75 !default;
+$h4-font-size : $font-size-default * 1.5 !default;
+$h5-font-size : $font-size-default * 1.25 !default;
+$h6-font-size : $font-size-default !default;
+// Links
+//
+// Style anchor elements.
+// $color-link:                              theme-color("primary") !default;
+$color-link-hover: $unnamed-color-1 !default;

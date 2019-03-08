@@ -1,0 +1,71 @@
+.breadcrumb{
+    &__list{
+        list-style: none;
+        margin: 0;
+        color: inherit;
+    }
+    &__item{
+        font-size: $font-size-default +2;
+        margin-bottom: $padding-default*2;
+        letter-spacing: 1px;
+        font-weight: bold;
+        display: inline-block;
+        &:first-child::before{
+            content: '';
+            display: inline-block;
+            height: 2px;
+            width: 30px;
+            background: $color-white;
+            vertical-align: middle;
+            @include rotate(0);
+        }
+        &::before{
+            content: '';
+            display: inline-block;
+            height: 2px;
+            width: 8px;
+            background: rgba($color-white, .5);
+            vertical-align: middle;
+            @include rotate(120);
+        }
+    }
+    &__link{
+        color: inherit;
+        vertical-align: middle;
+        padding: 0 $padding-default /2;
+        position: relative;
+        @include transition($duration:.2s);
+        &::before{
+            content: '';
+            height: 2px;
+            width: 0;
+            position: absolute;
+            bottom: 1px;
+            left: $padding-default /1.5;
+            background: $color-primary;
+            @include transition($duration:.2s);
+        }
+        &:hover{
+            color: $color-primary;
+            &::before{
+                width: calc(100% - #{$padding-default /.75});
+            }
+        }
+    }
+}
+@include media-breakpoint-down(sm) {
+    .breadcrumb{
+        &__item{
+            font-size: $font-size-default;
+            margin-bottom: $padding-default*1;
+        }
+    }
+}
+
+@include media-query(xl) {
+    .breadcrumb{
+        &__item{
+            font-size: $font-size-default +4;
+        }
+    }
+}

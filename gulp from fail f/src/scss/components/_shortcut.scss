@@ -1,0 +1,93 @@
+.shortcut{
+    border: 1px solid;
+    padding: $padding-default + 5;
+    position: relative;
+    @include flexbox();
+    @include flex-direction(row);
+    @include transition();
+    &::before{
+        content: '';
+        position: absolute;
+        width: 0;
+        // width: calc(100% + 4px);
+        left: -1px;
+        top: -1px;
+        bottom: -1px;
+        @include transition();
+        @include gradient-horizontal();
+    }
+    &:hover{
+        color: $color-white;
+        &::before{
+            width: calc(100% + 2px);
+        }
+    }
+    &__media{
+        width: 40%;
+        .media__img{
+            object-fit: contain;
+            height: 100%;
+        }
+    }
+    &__texts{
+        @include flex(1 1 auto);
+        @include align-self(center);
+        padding: $padding-default;
+        position: relative;
+    }
+    &__title{
+        color: inherit;
+        font-family: $font-family-secondary;
+        font-weight: unset;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: -0.64px;
+        line-height: 30px;
+        text-shadow: 0 2px 40px rgba(0,0,0,0.2);  
+    }
+    &__sub-title{
+        font-size: $font-size-default +2;
+        font-weight: normal;
+        letter-spacing: 0.3px;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+    &__arrow{
+        width: 20px;
+        height: 20px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border-top: solid 4px;
+        border-right: solid 4px;
+        @include rotate(45);
+    }
+    &__link{
+        color: inherit;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .shortcut{
+        &__title{
+            font-size: 28px;
+        }
+        &__sub-title{
+            font-size: $font-size-default +2;
+            line-height: 20px;
+        }
+    }
+}
+@include media-query(xl) {
+    .shortcut{
+        &__title{
+            font-size: 46px;
+            letter-spacing: -1px;
+        }
+        &__sub-title{
+            font-size: $font-size-default +4;
+        }
+    }
+}

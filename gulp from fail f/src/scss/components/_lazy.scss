@@ -1,0 +1,7 @@
+.fade-in{
+        opacity: 0;
+        @include transition($property: opacity);
+        &.visible{
+            opacity: 1;
+        }
+    }

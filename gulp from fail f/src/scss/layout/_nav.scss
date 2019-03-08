@@ -1,0 +1,363 @@
+// variables for slider animation
+// these variables only for this file
+$transition-time: .35s;
+$transition-delay: .33s;
+.app-nav{
+    pointer-events: auto;
+    text-align: left;
+        &__sidebar{
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            background: $color-primary;
+            color: $color-white;        
+            z-index: 100;
+            border-right: 1px solid $color-border-default;
+            @include transition();            
+            @include media-breakpoint-down(sm) {
+                top: $padding-default*2;
+                height: auto;
+                border-right: 0;
+            }
+        }
+        &__contact{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: $padding-default*2 0;
+            text-align: center;
+        }
+        &__toggler {
+            background: none;
+            border: none;
+            color: inherit;
+            font-weight: $font-weight-bold;
+            padding: $padding-default*2 33px 120px 33px;
+            display: block;
+            cursor: pointer;
+            width: $nav-width;
+            outline: 0;
+            color: $color-white;
+            &:focus{
+                outline: 0;
+            }
+            @include media-breakpoint-down(sm) {
+                min-height: 45px;
+                width: $nav-width-m;
+                padding: 0;
+            }
+        }
+        &__toggle-wrap{
+            display: block;
+            @include rotate(-90);
+            display: table;
+            @include media-breakpoint-down(sm) {
+                min-width: 14px;
+                margin: auto;
+            }
+        }
+        &__toggle-icon{
+            width: 14px;
+            height: 14px;
+            display: block;
+            margin: auto;
+            margin-bottom: 0;
+            position: relative;
+            float: left;
+            @include rotate(0);
+            @include transition();
+            @include media-breakpoint-down(sm) {
+                margin: 0;
+            }
+            span{
+                display: block;
+                width: 100%;
+                height: 2px;
+                color: $color-white;
+                border-left: 2px solid $color-white;
+                border-right: 2px solid $color-white;
+                position: absolute;
+                left: 0;
+                @include transition();
+                &::before{
+                    content: '';
+                    height: 2px;
+                    width: 2px;
+                    background: $color-white;
+                    display: block;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    position: absolute;
+                    @include transition();
+                }
+                &:nth-child(1) {
+                    top: 0;
+                }
+                &:nth-child(2) {
+                    top: 50%;
+                    margin-top: -1px;
+                }
+                &:nth-child(3) {
+                    bottom: 0;
+                }
+            }
+        }
+        &__text-wrap{
+            display: block;
+            position: absolute;
+            right: 100%;
+            margin-right: $padding-default;
+            @include media-breakpoint-down(sm) {
+                display: none;
+            margin-right: 0;
+            }
+        }
+        &__toggler-text{
+            display: block;
+            position: relative;
+            @include transition();
+            @include transform($scale: 1, $rotate: 0, $translateX:0, $translateY: 0px);
+            opacity: 1;
+        }
+        &__toggler-text-close{
+            display: block;
+            @include transition();
+            @include transform($scale: 1, $rotate: 0, $translateX:-10px, $translateY: 0px);
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        &__toggler-text,&__toggler-text-close{
+            line-height: 14px;
+            float: left;
+        }
+        &__nav-wrap {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            @include gradient-horizontal();
+            top: 0;
+            left: -100vw;
+            z-index: 99;
+            // padding-left: $nav-width;
+            overflow: auto;
+            @include flexbox();
+            @include flex-direction(column);
+            @include justify-content(center);
+            @include align-content(center);
+            @include transition($duration: $transition-time);
+            @include transition-delay($transition-delay);           
+        }
+        &__container{
+            padding-top: $padding-default*2;
+            padding-bottom: $padding-default*2;
+        }
+        &__list{
+            height: 100%;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            @include media-breakpoint-down(sm) {
+                margin-left: 0;
+                // padding: $padding-default*2;
+            }
+        }
+        &__item{
+            margin-bottom: $padding-default/2;
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 50px);
+            @include transition($property: all, $duration: $transition-time, $function: ease-out);
+            opacity: 0;
+            @include transition-delay(.0s);
+            &_active{
+                a{
+                    &::before{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        &__link{
+            font-size: $font-size-xxl + 10;
+            line-height: $font-size-xxl + 10;
+            position: relative;
+            font-family: $font-family-secondary;
+            color: $color-white;
+            text-shadow: 0 2px 40px rgba(0,0,0,0.1);
+            font-weight: unset;
+            @include media-breakpoint-down(sm) {
+                font-size: $font-size-xxl-m;
+                line-height: 60px;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                bottom: $padding-default;
+                left: 0;
+                width: 0;
+                height: 16px;
+                background: $color-black;
+                z-index: -1;
+                @include transition();
+                @include media-breakpoint-down(sm) {
+                    height: 12px;
+                    bottom: 5px;
+                }
+            }
+            &:hover{
+                &::before{
+                    width: 100%;
+                }
+            }
+        }
+        &__item-social{
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 50px);
+            @include transition($property: all, $duration: $transition-time, $function: ease-out);
+            opacity: 0;
+            @include transition-delay(.0s);
+        }
+        &__link-social{
+            font-size: $font-size-large; //24px;
+            color: $color-white;
+            text-shadow: 0 2px 40px rgba(0,0,0,0.1);
+            @include media-breakpoint-down(sm) {
+                font-size: 22px;
+            }
+            &:hover{
+                color: $color-black;
+            }
+        }
+        &__footer{
+            position: fixed;
+            right: $padding-fluid-grid;
+            bottom: $padding-default*2;
+            z-index: 102;
+            margin: 0;
+            font-weight: normal;
+            color: $color-white;
+            font-size: 12px;
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 20px);
+            @include transition($property: all, $duration: $transition-time - .15, $function: ease-out);
+            opacity: 0;
+        }
+        
+    }
+    
+.app-nav.open{
+    .app-nav{
+        &__footer{
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 0px);
+            @include transition-delay($transition-delay + .25);
+            opacity: 1;
+        }
+        &__sidebar{
+            background: $color-gradient-from;
+        }
+        &__toggle-icon{
+            @include rotate(45);
+            span{
+                &:nth-child(1) {
+                    width: 0px;
+                    border-right: 0px solid #fff;
+                    border-left: 0px solid #fff;
+                    left: 6px;
+                    top: 6px;
+                }
+                &:nth-child(2) {
+                    border-right: 7px solid $color-white;
+                    border-left: 7px solid $color-white;
+                    &::before{
+                        height: 14px;
+                        top: -6px;
+                        left: -1px;
+                    }
+                }
+                &:nth-child(3) {
+                    width: 0px;
+                    border-right: 0px solid #fff;
+                    border-left: 0px solid #fff;
+                    left: 6px;
+                    bottom: 6px;
+                }
+            }
+        }
+        &__text-wrap{
+            @include media-breakpoint-down(sm) {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 25px;
+            }
+        }
+        &__toggler-text-close{
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 0);
+            opacity: 1;    
+        }
+        &__toggler-text{
+            @include transform($scale: 1, $rotate: 0, $translateX: -10px, $translateY: 0);
+            opacity: 0;
+        }
+        &__item{
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 0px);
+            @include transition-delay($transition-delay);
+            opacity: 1;
+        }
+        &__item-social{
+            @include transition-delay($transition-delay);
+            @include transform($scale: 1, $rotate: 0, $translateX: 0, $translateY: 0px);
+            opacity: 1;
+        }
+        &__nav-wrap {
+            left: 0;
+            @include transition-delay(0s);
+            // padding-left: $nav-width;
+            @include media-breakpoint-down(sm) {
+                padding-left: $nav-width-m; 
+                &::before{
+                    content: '';
+                    position: fixed;
+                    left: $nav-width-m;
+                    top: 0;
+                    bottom: 0;
+                    border-left: 1px solid $color-border-default;
+                }
+            }
+        }
+    }
+}
+@include media-query(xl) {
+    // $nav-width-xl
+    .app-nav{
+        // &__nav-wrap {
+        //     padding-left: $nav-width-xl;
+        // }
+        &__toggler {
+            width: $nav-width-xl;
+        }
+        &__toggler {
+            padding: $padding-default*2 43px 120px 43px;
+        }
+        &__link{
+            font-size: 134px;
+            line-height: 136px;
+            letter-spacing: -1px;
+        }
+        &__link-social{
+            font-size: 30px; 
+            line-height: 56px;
+            letter-spacing: 0px;
+        }
+    }
+    // .app-nav.open{
+    //     .app-nav{
+    //         &__nav-wrap {
+    //             padding-left: $nav-width-xl;
+    //         }
+    //     }
+    // }
+}

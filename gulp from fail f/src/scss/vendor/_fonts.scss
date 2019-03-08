@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700');
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/38ae9c");
+
+  
+@font-face {
+    font-family: 'Mont-Light';
+    src:url('../fonts/38AE9C_0_unhinted_0.woff2') format('woff2'),url('../fonts/38AE9C_0_unhinted_0.woff') format('woff'),url('../fonts/38AE9C_0_unhinted_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Mont-Heavy';
+    src:url('../fonts/38AE9C_1_unhinted_0.woff2') format('woff2'),url('../fonts/38AE9C_1_unhinted_0.woff') format('woff'),url('../fonts/38AE9C_1_unhinted_0.ttf') format('truetype');}
+ 

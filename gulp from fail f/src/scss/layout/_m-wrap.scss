@@ -1,0 +1,101 @@
+// module wrapper
+.m-wrap {
+    position: relative;
+    &_bg-black {
+        background: $color-black;
+        color: $color-white;
+        .input-label {
+            &:before {
+                background-color: $color-black;
+            }
+        }
+        .info__icon {
+            fill: $color-white;
+        }
+    }
+    &_bg-white {
+        background: $color-white;
+        color: $color-black;
+        .input-label {
+            &:before {
+                background-color: $color-white;
+            }
+        }
+        .info__icon {
+            fill: $color-black;
+        }
+        .breadcrumb{
+            &__item{
+                &:first-child::before{
+                    background: $color-black;
+                }
+                &::before{
+                    background: rgba($color-black, .5);
+                }
+            }
+        }
+    }
+    &_clr-primary {
+        color: $radical-red;
+    }
+    &_bg-top-black {
+        &:after {
+            background: $color-black;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 50%;
+        }
+    }
+    &_bg-top-white {
+        &:after {
+            background: $color-white;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 50%;
+        }
+    }
+    &_bg-bottom-black {
+        &:before {
+            background: $color-black;
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 50%;
+        }
+    }
+    &_bg-bottom-white {
+        &:before {
+            background: $color-white;
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 50%;
+        }
+    }
+    p {
+        a {
+            // Anchor Tag
+            &:link,
+            &:visited,
+            &:hover,
+            &:active {
+                color: $color-primary;
+                text-decoration: underline;
+            }
+        } // Anchor Tag
+    }
+}

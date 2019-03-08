@@ -1,0 +1,158 @@
+// helper classes
+.full-screen-height {
+    height: 100vh;
+}
+
+.flex-center-v {
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-content(center);
+}
+.space-1 {
+    margin-bottom: $spacer;
+    display: table;
+    width: 100%;
+}
+.space-p {
+    padding-top: $spacer ;
+    padding-bottom: $spacer; 
+    @include media-breakpoint-down(sm) {
+        padding-top: $spacer-sm ;
+        padding-bottom: $spacer-sm; 
+    }
+
+}
+.space-p_2 {
+    padding-top: $spacer *2;
+    padding-bottom: $spacer *2;
+    @include media-breakpoint-down(sm) {
+        padding-top: $spacer-sm *2;
+        padding-bottom: $spacer-sm *2;
+    }
+}
+
+.space-p_3 {
+    padding-top: $spacer *3;
+    padding-bottom: $spacer *3;
+    @include media-breakpoint-down(sm) {
+        padding-top: $spacer-sm *3;
+        padding-bottom: $spacer-sm *3;
+    }
+}
+.space-p_4 {
+    padding-top: $spacer *4;
+    padding-bottom: $spacer *4;
+    @include media-breakpoint-down(sm) {
+        padding-top: $spacer-sm *4;
+        padding-bottom: $spacer-sm *4;
+    }
+}
+.space-p_5 {
+    padding-top: $spacer *5;
+    padding-bottom: $spacer *5;
+    @include media-breakpoint-down(sm) {
+        padding-top: $spacer-sm *5;
+        padding-bottom: $spacer-sm *5;
+    }
+}
+.space-p_6 {
+    padding-top: $spacer *6;
+    padding-bottom: $spacer *6;
+    @include media-breakpoint-down(sm) {
+        padding-top: $spacer-sm *6;
+        padding-bottom: $spacer-sm *6;
+    }
+}
+.space-p__top {
+    padding-top: $spacer 
+}
+.space-p__top_2 {
+    padding-top: $spacer *2;
+}
+
+.space-p__top_3 {
+    padding-top: $spacer *3;
+}
+
+.space-p__top_4 {
+    padding-top: $spacer *4;
+}
+
+.space-p__top_5 {
+    padding-top: $spacer *5;
+}
+.space-p__bottom {
+    padding-bottom: $spacer 
+}
+.space-p__bottom_2 {
+    padding-bottom: $spacer *2;
+}
+.space-p__bottom_3 {
+    padding-bottom: $spacer *3;
+}
+.space-p__bottom_4 {
+    padding-bottom: $spacer *4;
+}
+.space-p__bottom_5 {
+    padding-bottom: $spacer *5;
+}
+// SPACER MARGIN
+.space-m {
+    padding-top: $spacer ;
+    padding-bottom: $spacer; 
+}
+.space-m_2 {
+    padding-top: $spacer *2;
+    padding-bottom: $spacer *2;
+}
+
+.space-m_3 {
+    padding-top: $spacer *3;
+    padding-bottom: $spacer *3;
+}
+.space-m_4 {
+    padding-top: $spacer *4;
+    padding-bottom: $spacer *4;
+}
+.space-m_5 {
+    padding-top: $spacer *5;
+    padding-bottom: $spacer *5;
+}
+.space-m_6 {
+    padding-top: $spacer *6;
+    padding-bottom: $spacer *6;
+}
+.space-m__top {
+    padding-top: $spacer 
+}
+.space-m__top_2 {
+    padding-top: $spacer *2;
+}
+
+.space-m__top_3 {
+    padding-top: $spacer *3;
+}
+
+.space-m__top_4 {
+    padding-top: $spacer *4;
+}
+
+.space-m__top_5 {
+    padding-top: $spacer *5;
+}
+.space-m__bottom {
+    padding-bottom: $spacer 
+}
+.space-m__bottom_2 {
+    padding-bottom: $spacer *2;
+}
+.space-m__bottom_3 {
+    padding-bottom: $spacer *3;
+}
+.space-m__bottom_4 {
+    padding-bottom: $spacer *4;
+}
+.space-m__bottom_5 {
+    padding-bottom: $spacer *5;
+}
